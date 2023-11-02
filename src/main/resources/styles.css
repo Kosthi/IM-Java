@@ -1,0 +1,13 @@
+.root {
+    -fx-background-color: yellow;
+}
+
+.dialog-pane {
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 14px;
+}
+
+.dialog-pane .header-panel {
+    -fx-font-family: 'Times New Roman';
+    -fx-font-size: 16px;
+}

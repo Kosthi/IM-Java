@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: springboot-javafx-IM
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    name: defaultDataSource
+    password: wu20021011
+    schema: classpath:/user.sql
+    url: jdbc:mysql://localhost:3306/db_IM?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: none
+
+mybatis:
+  mapper-locations: classpath*:/*.xml
+  #目的是为了省略resultType里的代码量
+  type-aliases-package: com.kosthi.im.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

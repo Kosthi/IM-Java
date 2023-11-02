@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kosthi.im.controller.LoginController">
+    <AnchorPane prefHeight="330.0" prefWidth="430.0" style="-fx-background-color: white;">
+        <Label layoutX="99.0" layoutY="183.0" text="账 号：">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label layoutX="99.0" layoutY="217.0" text="密 码：">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Button fx:id="loginButton" alignment="CENTER" layoutX="97.0" layoutY="270.0" mnemonicParsing="false"
+                prefHeight="35.0" prefWidth="236.0" style="-fx-background-color: #1EC6FC;" text="登  录"
+                textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Button>
+        <CheckBox layoutX="98.0" layoutY="243.0" mnemonicParsing="false" text="自动登录" textFill="#a6a6a6"/>
+        <CheckBox layoutX="188.0" layoutY="243.0" mnemonicParsing="false" text="记住密码" textFill="#a6a6a6"/>
+        <Label fx:id="registLabel" layoutX="274.0" layoutY="243.0" prefHeight="18.0" prefWidth="58.0" text="注册账号"
+               textFill="#2a64d0"/>
+        <TextField fx:id="username" layoutX="146.0" layoutY="183.0" prefHeight="23.0" prefWidth="182.0">
+        <font>
+            <Font name="Times New Roman" size="13.0"/>
+        </font>
+        </TextField>
+        <PasswordField fx:id="password" layoutX="146.0" layoutY="216.0" prefHeight="23.0" prefWidth="182.0">
+        <font>
+            <Font name="Times New Roman" size="13.0"/>
+        </font>
+        </PasswordField>
+    </AnchorPane>
+</VBox>
