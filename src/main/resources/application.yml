@@ -11,7 +11,7 @@ spring:
     username: root
   main:
     allow-bean-definition-overriding: true
-    web-application-type: none
+    # web-application-type: none
 
 mybatis:
   mapper-locations: classpath*:/*.xml
