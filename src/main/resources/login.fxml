@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.*?>
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kosthi.im.controller.LoginController">
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="330.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      fx:controller="com.kosthi.im.controller.LoginController">
     <AnchorPane prefHeight="330.0" prefWidth="430.0" style="-fx-background-color: white;">
         <Label layoutX="99.0" layoutY="183.0" text="账 号：">
             <font>
@@ -28,14 +31,14 @@
         <Label fx:id="registLabel" layoutX="274.0" layoutY="243.0" prefHeight="18.0" prefWidth="58.0" text="注册账号"
                textFill="#2a64d0"/>
         <TextField fx:id="username" layoutX="146.0" layoutY="183.0" prefHeight="23.0" prefWidth="182.0">
-        <font>
-            <Font name="Times New Roman" size="13.0"/>
-        </font>
+            <font>
+                <Font name="Times New Roman" size="13.0"/>
+            </font>
         </TextField>
         <PasswordField fx:id="password" layoutX="146.0" layoutY="216.0" prefHeight="23.0" prefWidth="182.0">
-        <font>
-            <Font name="Times New Roman" size="13.0"/>
-        </font>
+            <font>
+                <Font name="Times New Roman" size="13.0"/>
+            </font>
         </PasswordField>
     </AnchorPane>
 </VBox>

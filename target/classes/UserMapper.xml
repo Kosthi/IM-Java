@@ -2,19 +2,84 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kosthi.im.mapper.UserMapper">
     <resultMap id="UserResultMap" type="User">
-<!--        <result property="id" column="id" />-->
-        <result property="name" column="name" />
-        <result property="password" column="password" />
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="username" column="username"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="telephone" column="telephone"/>
+        <result property="address" column="address"/>
+        <result property="label" column="label"/>
+        <result property="head" column="head"/>
+        <result property="background" column="background"/>
     </resultMap>
 
     <insert id="addUser" parameterType="User">
-        INSERT INTO user(name, password)
-        VALUES (#{name}, #{password})
+        INSERT INTO user(account, password, username, sex, age, telephone)
+        VALUES (#{account}, #{password}, #{username}, #{sex}, #{age}, #{telephone})
     </insert>
 
     <select id="queryUserByName" resultMap="UserResultMap">
-        SELECT name, password
+        SELECT *
         FROM user
-        WHERE name = #{name}
+        WHERE username = #{username}
     </select>
+
+    <select id="queryUserByAccount" resultMap="UserResultMap">
+        SELECT account, password, username, sex, age, telephone, address, label, head, background
+        FROM user
+        WHERE account = #{account}
+    </select>
+
+    <select id="queryUserIfOnline" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM user
+        JOIN session ON user.id = session.user_id
+        WHERE user.account = #{account} AND session.is_online = true
+    </select>
+
+    <insert id="addFriend" >
+        INSERT INTO friendship(user_id1, user_id2, status)
+        VALUES (#{fromId}, #{toId}, 'active')
+    </insert>
+
+    <select id="findUserIdByAccount" resultType="long">
+        SELECT id FROM user WHERE account = #{account}
+    </select>
+
+    <select id="checkIfFriend" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM friendship
+        WHERE user_id1 = #{fromId} AND user_id2 = #{toId} AND status = 'active'
+    </select>
+
+    <select id="queryAllFriends" parameterType="long" resultMap="UserResultMap">
+        SELECT account, password, username, sex, age, telephone, address, label, head, background
+        FROM user u
+        JOIN friendship f ON u.id = f.user_id1
+        WHERE f.user_id2 = #{userId}
+        AND f.status = 'active'
+    </select>
+
+    <select id="isInSession" resultType="Boolean">
+        SELECT COUNT(*) > 0
+        FROM session
+        WHERE user_id = #{userId}
+    </select>
+
+    <insert id="addSession">
+        INSERT INTO session(user_id, is_online)
+        VALUES (#{userId}, true)
+    </insert>
+
+    <update id="updateUserStatus">
+        UPDATE session
+        SET is_online = #{isOnline}
+        WHERE user_id = #{userId}
+    </update>
+
+    <insert id="addMsg">
+        INSERT INTO message(sender_id, receiver_id, content)
+        VALUES (#{sender_id}, #{received_id}, #{content})
+    </insert>
 </mapper>

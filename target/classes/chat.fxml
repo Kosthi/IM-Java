@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="your.controller.Class">
+    <MenuBar>
+        <Menu text="文件">
+            <MenuItem text="退出"/>
+        </Menu>
+        <Menu text="帮助">
+            <MenuItem text="关于"/>
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.3" orientation="HORIZONTAL">
+        <ListView fx:id="userList"/>
+        <VBox>
+            <ListView fx:id="chatArea"/>
+            <HBox>
+                <TextField fx:id="messageInput" HBox.hgrow="ALWAYS"/>
+                <Button text="发送"/>
+            </HBox>
+        </VBox>
+    </SplitPane>
+</VBox>

@@ -1,5 +1,6 @@
 package com.kosthi.im;
 
+import com.kosthi.im.controller.ServerListener;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,13 +12,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.net.URL;
-import java.util.Objects;
 
 @SpringBootApplication
 public class ImApplication extends Application {
     // 任何地方都可以通过这个applicationContext获取springboot的上下文
     public static ConfigurableApplicationContext applicationContext;
     private static String[] args;
+
+    public static void main(String[] args) {
+        ImApplication.args = args;
+        launch(args);
+        new ServerListener().start();
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -45,11 +51,6 @@ public class ImApplication extends Application {
         scene.getStylesheets().add("/styles.css");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        ImApplication.args = args;
-        launch(args);
     }
 
     @Override
